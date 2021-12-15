@@ -1,4 +1,6 @@
 import {FiSearch} from 'react-icons/fi'
+
+import InputMask from "react-input-mask";
 import './style.css'
 import api from './services/api'
 import { useState } from 'react'
@@ -20,7 +22,8 @@ function App() {
       setInput("")
 
     }catch{
-      alert('Erro ao buscar CEP')
+      alert('CEP não encontrado!')
+      setInput("")
     }
   }
 
@@ -29,7 +32,8 @@ function App() {
       <h1 className="title">Buscar CEP</h1>
 
       <div className="containerInput">
-        <input 
+        <InputMask 
+          mask="99999-999" 
           type="text"
           placeholder="Digite um CEP válido"
           value={input}
